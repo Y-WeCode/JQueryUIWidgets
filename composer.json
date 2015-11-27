@@ -1,0 +1,30 @@
+{
+    "name" : "ywc/common/jqueryuiwidgets",
+    "description" : "Form types for easy use of JQueryUI widgets",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Raphaël Babel",
+        "email" : "rbabel@yes-we-code.fr"
+    }],
+    "keywords" : [
+        "form types jquery-ui widget"
+    ],
+    "license" : [
+        "Proprietary"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "YWC\\Common\\JQueryUIWidgetsBundle" : ""
+        }
+    },
+    "target-dir" : "YWC/Common/JQueryUIWidgetsBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "0.0.0-dev"
+        }
+    }
+}
