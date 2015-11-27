@@ -19,7 +19,7 @@
             "YWC\\Common\\JQueryUIWidgetsBundle" : ""
         }
     },
-    "target-dir" : "YWC/Common/JQueryUIWidgetsBundle",
+    "target-dir" : "",
     "repositories" : [{
     }],
     "extra" : {
