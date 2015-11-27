@@ -1,5 +1,5 @@
 {
-    "name" : "ywc/common/jqueryuiwidgets",
+    "name" : "ywc/common/jqueryuiwidgets-bundle",
     "description" : "Form types for easy use of JQueryUI widgets",
     "type" : "symfony-bundle",
     "authors" : [{
