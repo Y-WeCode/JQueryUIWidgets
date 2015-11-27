@@ -37,6 +37,6 @@ class AutocompleteType extends AbstractType
 
     public function getName()
     {
-        return 'jqui-autocomplete';
+        return 'jqui_autocomplete';
     }
 }
