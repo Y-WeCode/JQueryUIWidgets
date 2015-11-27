@@ -33,6 +33,6 @@ class SliderType extends AbstractType
 
     public function getName()
     {
-        return 'ywc_slider';
+        return 'jqui-slider';
     }
 }
