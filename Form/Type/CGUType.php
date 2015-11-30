@@ -1,6 +1,6 @@
 <?php
 
-namespace YWC\UI\CoreBundle\Form\Type;
+namespace YWC\JQueryUIWidgetsBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
@@ -31,6 +31,6 @@ class CGUType extends AbstractType
 
     public function getName()
     {
-        return 'ywc_cgu';
+        return 'jqui_cgu';
     }
 }
