@@ -17,6 +17,7 @@ $(document).ready(function() {
 	    select: function(e, u) {
 		$el.val(u.item.label);
 		$el.next().val(u.item.value);
+		$el.change();
 		return false;
 	    },
 	});
