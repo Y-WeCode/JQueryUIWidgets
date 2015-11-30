@@ -1,6 +1,6 @@
 <?php
 
-namespace YWC\Common\JQueryUIWidgetsBundle;
+namespace YWC\JQueryUIWidgetsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

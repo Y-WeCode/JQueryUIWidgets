@@ -1,11 +1,11 @@
 services:
     ywc.jqui_widgets.slider:
-        class: YWC\Common\JQueryUIWidgetsBundle\Form\Type\SliderType
+        class: YWC\JQueryUIWidgetsBundle\Form\Type\SliderType
         tags:
             - { name: form.type, alias: jqui_slider }
 
     ywc.jqui_widgets.autocomplete:
-        class: YWC\Common\JQueryUIWidgetsBundle\Form\Type\AutocompleteType
+        class: YWC\JQueryUIWidgetsBundle\Form\Type\AutocompleteType
         tags:
             - { name: form.type, alias: jqui_autocomplete }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace YWC\Common\JQueryUIWidgetsBundle\DependencyInjection;
+namespace YWC\JQueryUIWidgetsBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
