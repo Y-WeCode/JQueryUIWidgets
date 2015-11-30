@@ -18,10 +18,9 @@
     },
     "autoload" : {
         "psr-4" : {
-            "YWC\\Common\\JQueryUIWidgetsBundle\\" : ""
+            "YWC\\JQueryUIWidgetsBundle\\" : ""
         }
     },
-    "target-dir" : "",
     "repositories" : [{
     }],
     "extra" : {
