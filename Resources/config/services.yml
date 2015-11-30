@@ -9,3 +9,8 @@ services:
         tags:
             - { name: form.type, alias: jqui_autocomplete }
 
+    ywc.jqui_widgets.cgu:
+        class: YWC\JQueryUIWidgetsBundle\Form\Type\CGUType
+        tags:
+            - { name: form.type, alias: jqui_cgu }
+
