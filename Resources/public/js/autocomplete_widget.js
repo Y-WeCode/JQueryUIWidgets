@@ -1,5 +1,6 @@
-$(document).ready(function() {
-    var $widget = $('div.ywc_autocomplete_widget input[type="text"]');
+function ywc_autocompletes($sel) {
+    if(typeof $sel === "undefined") var $widget = $('div.ywc_autocomplete_widget input[type="text"]');
+    else var $widget = $sel.find('div.ywc_autocomplete_widget input[type="text"]');
     $widget.each(function(i, el) {
 	var $el = $(el);
 	$el.autocomplete({
@@ -22,4 +23,4 @@ $(document).ready(function() {
 	    },
 	});
     });
-});
+}

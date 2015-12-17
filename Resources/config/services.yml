@@ -6,6 +6,7 @@ services:
 
     ywc.jqui_widgets.autocomplete:
         class: YWC\JQueryUIWidgetsBundle\Form\Type\AutocompleteType
+        arguments: ["@ywc.factory.entity2integer_transformer"]
         tags:
             - { name: form.type, alias: jqui_autocomplete }
 
@@ -13,4 +14,13 @@ services:
         class: YWC\JQueryUIWidgetsBundle\Form\Type\CGUType
         tags:
             - { name: form.type, alias: jqui_cgu }
+
+    ywc.jqui_widgets.datepicker:
+        class: YWC\JQueryUIWidgetsBundle\Form\Type\DatePickerType
+        tags:
+            - { name: form.type, alias: jqui_datepicker }
+
+    ywc.factory.entity2integer_transformer:
+        class: YWC\JQueryUIWidgetsBundle\Utils\EntityToIntegerTransformerFactory
+        arguments: ["@doctrine.orm.entity_manager"]
 

@@ -23,3 +23,10 @@
 		</div>
 	{% endspaceless %}
 {% endblock %}
+{% block jqui_datepicker_widget %}
+	{% spaceless %}
+		<div class="ywc_datepicker_widget">
+			{{ block('form_widget_simple') }}
+		</div>
+	{% endspaceless %}	
+{% endblock %}
