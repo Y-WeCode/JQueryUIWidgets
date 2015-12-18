@@ -27,8 +27,8 @@
 	}
     ],
     "require" : {
-	"components/jquery": "1.11.1",
-	"components/jqueryui": "1.11.1"
+	"components/jquery": "~2.0",
+	"components/jqueryui": "~1.11",
     },
     "autoload" : {
         "psr-4" : {
