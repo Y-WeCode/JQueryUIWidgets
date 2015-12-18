@@ -28,8 +28,7 @@
     ],
     "require" : {
 	"components/jquery": "~2.0",
-	"components/jqueryui": "~1.10.2",
-	"trentrichardson/jquery-timepicker-addon": "dev-master"
+	"components/jqueryui": "~1.10.2"
     },
     "autoload" : {
         "psr-4" : {
