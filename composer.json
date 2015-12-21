@@ -21,7 +21,7 @@
     "require" : {
 	"components/jquery": "~2.0",
 	"components/jqueryui": "~1.10.2",
-	"ywc/tag-it": "@dev"
+	"ywc/tag-it": "dev-master"
     },
     "autoload" : {
         "psr-4" : {
