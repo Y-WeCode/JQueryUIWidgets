@@ -12,16 +12,9 @@
     "license" : [
         "Proprietary"
     ],
-    "repositories": [
-	{
-	    "type": "vcs",
-	    "url": "https://github.com/Y-WeCode/tag-it.git"	    
-	}
-    ],
     "require" : {
 	"components/jquery": "~2.0",
-	"components/jqueryui": "~1.10.2",
-	"ywc/tag-it": "dev-master"
+	"components/jqueryui": "~1.10.2"
     },
     "autoload" : {
         "psr-4" : {
