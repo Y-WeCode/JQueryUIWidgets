@@ -10,6 +10,12 @@ services:
         tags:
             - { name: form.type, alias: jqui_autocomplete }
 
+    ywc.jqui_widgets.select2:
+        class: YWC\JQueryUIWidgetsBundle\Form\Type\Select2Type
+        arguments: ["@ywc.factory.entity2integer_transformer"]
+        tags:
+            - { name: form.type, alias: select2 }
+
     ywc.jqui_widgets.cgu:
         class: YWC\JQueryUIWidgetsBundle\Form\Type\CGUType
         tags:
@@ -20,6 +26,11 @@ services:
         tags:
             - { name: form.type, alias: jqui_datepicker }
 
+    ywc.jqui_widgets.datetimepicker:
+        class: YWC\JQueryUIWidgetsBundle\Form\Type\DateTimePickerType
+        tags:
+            - { name: form.type, alias: jqui_datetimepicker }
+            
     ywc.factory.entity2integer_transformer:
         class: YWC\JQueryUIWidgetsBundle\Utils\EntityToIntegerTransformerFactory
         arguments: ["@doctrine.orm.entity_manager"]

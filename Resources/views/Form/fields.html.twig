@@ -1,6 +1,6 @@
 {% block jqui_autocomplete_widget %}
 	{% spaceless %}
-		<div class="ywc_autocomplete_widget" data-type="{{ ywc_autocomplete_type }}" >
+		<div class="ywc_autocomplete_widget" data-type="{{ ywc_autocomplete_type }}" data-multiple="{{ multiple }}">
 			<input type="text" value="{{ text_value }}" />
 			<input type="hidden" value="{{ value }}" {{ block('widget_attributes') }} />
 		</div>
@@ -26,6 +26,13 @@
 {% block jqui_datepicker_widget %}
 	{% spaceless %}
 		<div class="ywc_datepicker_widget">
+			{{ block('form_widget_simple') }}
+		</div>
+	{% endspaceless %}	
+{% endblock %}
+{% block jqui_datetimepicker_widget %}
+	{% spaceless %}
+		<div class="ywc_datetimepicker_widget">
 			{{ block('form_widget_simple') }}
 		</div>
 	{% endspaceless %}	

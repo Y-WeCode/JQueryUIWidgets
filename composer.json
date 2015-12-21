@@ -14,21 +14,14 @@
     ],
     "repositories": [
 	{
-	    "type": "package",
-	    "package": {
-		"name": "select2/select2",
-		"version": "3.5.4",
-		"source": {
-                    "url": "https://github.com/select2/select2.git",
-                    "type": "git",
-                    "reference": "master"
-		}
-            }
+	    "type": "vcs",
+	    "url": "https://github.com/Y-WeCode/tag-it.git"	    
 	}
     ],
     "require" : {
 	"components/jquery": "~2.0",
-	"components/jqueryui": "~1.10.2"
+	"components/jqueryui": "~1.10.2",
+	"ywc/tag-it": "@dev"
     },
     "autoload" : {
         "psr-4" : {

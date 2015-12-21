@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use YWC\JQueryUIWidgetsBundle\Utils\EntityToIntegerTransformerFactory;
 
-class AutocompleteType extends AbstractType
+class Select2Type extends AbstractType
 {
 
     private $transformerFactory;
@@ -23,40 +23,40 @@ class AutocompleteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'ywc_autocomplete_type' => null,
-            'text_value' => null,
+            'autocomplete' => null,
             'classname' => null,
             'multiple' => false,
         ));
     }
 
+    
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if(!empty($options['classname'])) {
-            $builder->addModelTransformer($this->transformerFactory->create($options['classname'], $options['multiple']));
+            $builder->addModelTransformer($this->transformerFactory->create($options['classname'], $options['multiple'], 'select2'));
         }
     }
+    
 
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        if(is_null($options['ywc_autocomplete_type'])) {
-            throw new LogicException('Autocomplete field option "ywc_autocomplete_type" cannot be null.');
+        if(is_null($options['autocomplete'])) {
+            throw new LogicException('Autocomplete field option "autocomplete" cannot be null.');
         }        
 
         $view->vars = array_replace($view->vars, array(
-            'ywc_autocomplete_type'  => $options['ywc_autocomplete_type'],
-            'text_value' => $options['text_value'],
+            'autocomplete'  => $options['autocomplete'],
             'multiple' => $options['multiple'],
         ));
     }
 
     public function getParent()
     {
-        return 'text';
+        return 'choice';
     }
 
     public function getName()
     {
-        return 'jqui_autocomplete';
+        return 'select2';
     }
 }
