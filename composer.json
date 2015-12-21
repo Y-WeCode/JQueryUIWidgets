@@ -21,17 +21,15 @@
     "require" : {
 	"components/jquery": "~2.0",
 	"components/jqueryui": "~1.10.2",
-	"ywc/tag-it": "dev-master"
+	"ywc/tag-it": "@dev"
     },
     "autoload" : {
         "psr-4" : {
             "YWC\\JQueryUIWidgetsBundle\\" : ""
         }
     },
-    "repositories" : [{
-    }],
     "extra" : {
-    "branch-alias" : {
+	"branch-alias" : {
             "dev-master" : "0.0.0-dev"
         }
     }
