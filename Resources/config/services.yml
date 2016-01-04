@@ -6,13 +6,13 @@ services:
 
     ywc.jqui_widgets.autocomplete:
         class: YWC\JQueryUIWidgetsBundle\Form\Type\AutocompleteType
-        arguments: ["@ywc.factory.entity2integer_transformer"]
+        arguments: ["@ywc.factory.datatransformer"]
         tags:
             - { name: form.type, alias: jqui_autocomplete }
 
     ywc.jqui_widgets.select2:
         class: YWC\JQueryUIWidgetsBundle\Form\Type\Select2Type
-        arguments: ["@ywc.factory.entity2integer_transformer"]
+        arguments: ["@ywc.factory.datatransformer"]
         tags:
             - { name: form.type, alias: select2 }
 
@@ -31,7 +31,7 @@ services:
         tags:
             - { name: form.type, alias: jqui_datetimepicker }
             
-    ywc.factory.entity2integer_transformer:
-        class: YWC\JQueryUIWidgetsBundle\Utils\EntityToIntegerTransformerFactory
+    ywc.factory.datatransformer:
+        class: YWC\JQueryUIWidgetsBundle\Utils\DataTransformerFactory
         arguments: ["@doctrine.orm.entity_manager"]
 

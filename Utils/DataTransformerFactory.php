@@ -7,7 +7,7 @@ use YWC\JQueryUIWidgetsBundle\Form\DataTransformer\ArrayCollectionToArrayTransfo
 use YWC\JQueryUIWidgetsBundle\Form\DataTransformer\ArrayCollectionToIntegerListTransformer;
 use YWC\JQueryUIWidgetsBundle\Form\DataTransformer\EntityToIntegerTransformer;
 
-class EntityToIntegerTransformerFactory
+class DataTransformerFactory
 {
 
     private $em;

@@ -24,9 +24,7 @@ class ArrayCollectionToIntegerListTransformer implements DataTransformerInterfac
      */
     public function transform($entities)
     {
-        return implode(',', $entities->map(function($entity) {
-            return $entity->getId();
-        })->toArray());
+        return $entities;
     }
 
     /**

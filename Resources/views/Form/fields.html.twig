@@ -6,6 +6,14 @@
 		</div>
 	{% endspaceless %}	
 {% endblock %}
+{% block select2_widget %}
+	{% spaceless %}
+		<div class="ywc_select2_widget" data-type="{{ autocomplete }}" data-multiple="{{ multiple }}">
+			<input type="hidden" value="{{ value }}" {{ block('widget_attributes') }} />
+			<select class="select2" {% if multiple %}multiple="multiple"{% endif %} ></select>
+		</div>
+	{% endspaceless %}	
+{% endblock %}
 {% block jqui_slider_widget %}
 	{% spaceless %}
 		<div class="ywc_slider_widget">

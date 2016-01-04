@@ -6,18 +6,16 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Exception\LogicException;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use YWC\JQueryUIWidgetsBundle\Utils\DataTransformerFactory;
+use YWC\JQueryUIWidgetsBundle\Utils\EntityToIntegerTransformerFactory;
 
-class Select2Type extends AbstractType
+class TagItType extends AbstractType
 {
 
     private $transformerFactory;
     
-    public function __construct(DataTransformerFactory $transformerFactory)
+    public function __construct(EntityToIntegerTransformerFactory $transformerFactory)
     {
         $this->transformerFactory = $transformerFactory;
     }
@@ -27,21 +25,16 @@ class Select2Type extends AbstractType
         $resolver->setDefaults(array(
             'autocomplete' => null,
             'classname' => null,
-            'multiple' => false,
-            'placeholder' => '',
+            'multiple' => true,
         ));
     }
-    
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if(!empty($options['classname'])) {
             $builder->addModelTransformer($this->transformerFactory->create($options['classname'], $options['multiple']));
         }
-        
-        $builder->addEventListener(FormEvents::PRE_SUBMIT, function(FormEvent $event) {           
-            var_dump($event->getData());
-        });
-    }    
+    }
 
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
@@ -50,12 +43,9 @@ class Select2Type extends AbstractType
         }        
 
         $view->vars = array_replace($view->vars, array(
-            'autocomplete'  => $options['autocomplete'],
+            'autocomplete'  => $options['ywc_autocomplete_type'],
+            'text_value' => $options['text_value'],
             'multiple' => $options['multiple'],
-            'expanded' => false,
-            'placeholder' => false,
-            'preferred_choices' => array(),
-            'choices' => array(),
         ));
     }
 
@@ -66,6 +56,6 @@ class Select2Type extends AbstractType
 
     public function getName()
     {
-        return 'select2';
+        return 'jqui_autocomplete';
     }
 }

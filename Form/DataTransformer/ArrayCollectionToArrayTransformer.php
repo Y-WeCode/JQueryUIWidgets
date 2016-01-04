@@ -16,26 +16,15 @@ class ArrayCollectionToArrayTransformer implements DataTransformerInterface
         $this->repository = $repository;
     }
 
-    /**
-     * Transforms an ArrayCollection to a string (number list).
-     *
-     * @param  ArrayCollection $entities
-     * @return string
-     */
     public function transform($entities)
     {
         return $entities->toArray();
     }
 
-    /**
-     * Transforms a string (number list) to an ArrayCollection.
-     *
-     * @param  string $numbers
-     * @return ArrayCollection
-     * @throws TransformationFailedException if objects are not found.
-     */
     public function reverseTransform($numbers)
     {
-        return new ArrayCollection();        
+        return new ArrayCollection(array_map(function($id) {
+            return $this->repository->find($id);
+        }, $numbers));        
     }
 }
