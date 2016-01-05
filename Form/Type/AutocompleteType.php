@@ -8,14 +8,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use YWC\JQueryUIWidgetsBundle\Utils\EntityToIntegerTransformerFactory;
+use YWC\JQueryUIWidgetsBundle\Utils\DataTransformerFactory;
 
 class AutocompleteType extends AbstractType
 {
 
     private $transformerFactory;
     
-    public function __construct(EntityToIntegerTransformerFactory $transformerFactory)
+    public function __construct(DataTransformerFactory $transformerFactory)
     {
         $this->transformerFactory = $transformerFactory;
     }
