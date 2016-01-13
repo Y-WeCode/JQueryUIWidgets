@@ -3,7 +3,7 @@ function ywc_select2s($sel) {
     else var $widget = $sel.find('div.ywc_select2_widget select');
     $widget.each(function(i, el) {
 	var $el = $(el);
-	var type = $el.parent().parent().attr('data-type');
+	var type = $el.parent().parent().attr('data-type');	
 	$el.select2({
 	    ajax: {
 		url: ywc_glob['api_base_url']+'autocomplete/'+type,
@@ -28,11 +28,22 @@ function ywc_select2s($sel) {
 	    }
 	});
 	reloadTags($el);
-    });
-    $widget.change(function() {	
+    });    
+    $widget.change(function() {
 	var $el = $(this);
 	reloadTags($el);
-	$(this).parents('div.ywc_select2_widget').children('input').val($el.val().join());
+	var propagate_label = $el.parent().parent().attr('data-propagate-label');
+	console.log(propagate_label);
+	if(typeof propagate_label !== typeof undefined && propagate_label !== false) {
+	    var $labels = $el.parent().find('li.select2-selection__choice');
+	    var $values = $el.val();
+	    var out = [];
+	    $.each($labels, function(i, v) {
+		out.push($values[i]+'::'+$(v).clone().children().remove().end().text())
+	    });
+	    $(this).parents('div.ywc_select2_widget').children('input').val(out.join(',,'));
+	}
+	else $(this).parents('div.ywc_select2_widget').children('input').val($el.val().join());
     });
 }
 

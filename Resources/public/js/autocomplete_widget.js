@@ -17,10 +17,11 @@ function ywc_autocompletes($sel) {
 	    },
 	    select: function(e, u) {
 		$el.val(u.item.label);
-		$el.next().val(u.item.value);
+		$el.next().val(u.item.value+':'+u.item.label);
 		$el.change();
 		return false;
 	    },
 	});
+	$el.val($el.next().val().split(':').splice(1, 100).join(':'));
     });
 }

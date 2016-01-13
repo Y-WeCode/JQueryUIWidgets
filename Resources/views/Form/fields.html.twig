@@ -8,9 +8,16 @@
 {% endblock %}
 {% block select2_widget %}
 	{% spaceless %}
-		<div class="ywc_select2_widget" data-type="{{ autocomplete }}" data-multiple="{{ multiple }}">
+		<div class="ywc_select2_widget" data-type="{{ autocomplete }}" data-multiple="{{ multiple }}" data-propagate-label="{{ propagate_label }}">
 			<input type="hidden" value="{{ value }}" {{ block('widget_attributes') }} />
-			<select class="select2" {% if multiple %}multiple="multiple"{% endif %} ></select>
+			<select class="select2" {% if multiple %}multiple="multiple"{% endif %} >
+				{% if value != '' %}
+					{% for val in value|split(',,') %}
+						{% set v = val|split('::') %}
+						<option value="{{ v[0] }}" selected="selected" label="{{ v[1] }}" >{{ v[1] }}</option>
+					{% endfor %}
+				{% endif %}
+			</select>
 		</div>
 	{% endspaceless %}	
 {% endblock %}
