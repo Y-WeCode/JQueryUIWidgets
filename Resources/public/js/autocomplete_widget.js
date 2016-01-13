@@ -23,5 +23,8 @@ function ywc_autocompletes($sel) {
 	    },
 	});
 	$el.val($el.next().val().split(':').splice(1, 100).join(':'));
+	$el.keydown(function() {
+	    $el.next().val('');
+	});
     });
 }
