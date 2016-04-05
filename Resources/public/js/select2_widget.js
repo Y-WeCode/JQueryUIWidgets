@@ -3,37 +3,44 @@ function ywc_select2s($sel) {
     else var $widget = $sel.find('div.ywc_select2_widget select');
     $widget.each(function(i, el) {
 	var $el = $(el);
-	var type = $el.parent().parent().attr('data-type');	
-	$el.select2({
-	    ajax: {
-		url: ywc_glob['api_base_url']+'autocomplete/'+type,
-		dataType: 'json',
-		delay: 250,
-		method: 'POST',
-		cache: true,
-		data: function (params) {
-		    return {
-			q: params.term
-		    };
+	var type = $el.parent().parent().attr('data-type');
+	if(type.length > 0) {
+	    $el.select2({
+		ajax: {
+		    url: ywc_glob['api_base_url']+'autocomplete/'+type,
+		    dataType: 'json',
+		    delay: 250,
+		    method: 'POST',
+		    cache: true,
+		    data: function (params) {
+			return {
+			    q: params.term
+			};
+		    },
+		    processResults: function(data, params) {
+			return {results: data[type+'s']};
+		    }		
 		},
-		processResults: function(data, params) {
-		    return {results: data[type+'s']};
-		}		
-	    },
-	    templateResult: function(item) {
-		return item.value;
-	    },
-	    templateSelection: function(item) {
-		return item.value;
-	    }
-	});
-	reloadTags($el);
+		templateResult: function(item) {
+		    return item.value;
+		},
+		templateSelection: function(item) {
+		    return item.value;
+		}
+	    });
+	    reloadTags($el);
+	}
+	else {
+	    $el.select2({
+		tags: true
+	    });
+	}
     });    
     $widget.change(function() {
 	var $el = $(this);
+	var type = $el.parent().parent().attr('data-type');
 	reloadTags($el);
 	var propagate_label = $el.parent().parent().attr('data-propagate-label');
-	console.log(propagate_label);
 	if(typeof propagate_label !== typeof undefined && propagate_label !== false) {
 	    var $labels = $el.parent().find('li.select2-selection__choice');
 	    var $values = $el.val();

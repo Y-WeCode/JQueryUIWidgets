@@ -11,6 +11,7 @@ $(document).ready(function() {
 	    },
 	    change: function(e, ui) {
 		$el.next().next().val(ui.value);
+		$el.next().next().change();
 	    }
 	});
     });

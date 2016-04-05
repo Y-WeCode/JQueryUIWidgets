@@ -8,7 +8,10 @@
 {% endblock %}
 {% block select2_widget %}
 	{% spaceless %}
-		<div class="ywc_select2_widget" data-type="{{ autocomplete }}" data-multiple="{{ multiple }}" data-propagate-label="{{ propagate_label }}">
+		<div class="ywc_select2_widget"
+			{% if autocomplete is not null %}data-type="{{ autocomplete }}"{% endif %}
+			data-multiple="{{ multiple }}"
+			data-propagate-label="{{ propagate_label }}">
 			<input type="hidden" value="{{ value }}" {{ block('widget_attributes') }} />
 			<select class="select2" {% if multiple %}multiple="multiple"{% endif %} >
 				{% if value != '' %}

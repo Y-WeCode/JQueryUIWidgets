@@ -29,6 +29,7 @@ class Select2Type extends AbstractType
             'classname' => null,
             'multiple' => false,
             'placeholder' => '',
+            'tags' => false,
         ));
     }
     
@@ -36,7 +37,7 @@ class Select2Type extends AbstractType
     {
         if(!empty($options['classname'])) {
             $builder->addModelTransformer($this->transformerFactory->create($options['classname'], $options['multiple']));
-        }
+         }
         /*
         $builder->addEventListener(FormEvents::PRE_SUBMIT, function(FormEvent $event) {           
             //var_dump($event->getData());
@@ -46,13 +47,16 @@ class Select2Type extends AbstractType
 
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
+        /*
         if(is_null($options['autocomplete'])) {
             throw new LogicException('Autocomplete field option "autocomplete" cannot be null.');
-        }        
+        }       
+        */ 
 
         $view->vars = array_replace($view->vars, array(
             'autocomplete'  => $options['autocomplete'],
             'multiple' => $options['multiple'],
+            'tags' => $options['tags'],
             'expanded' => false,
             'placeholder' => false,
             'preferred_choices' => array(),
